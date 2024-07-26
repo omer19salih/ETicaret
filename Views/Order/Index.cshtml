@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplication2.Models.AdminOrderModel>
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container pb-5">
+    <h2>Siparişler</h2>
+    <hr />
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sipariş Numarası</th>
+                <th>Sipariş Tarihi</th>
+                <th>Sipariş Durumu</th>
+                <th>Toplam</th>
+                <th>Ürün Sayısı</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.SiparisNumarasi</td>
+                    <td>@item.SiparisTarihi.ToString("dd.MM.yyyy")</td> <!-- Tarih formatını güncelledim -->
+                    <td>
+                        @item.SiparisDurumu
+                    </td>
+                    <td>
+                        <i class="fa fa-try" aria-hidden="true"></i>
+                        @item.Toplam.ToString("N2") <!-- Toplamı iki ondalık basamakla formatladım -->
+                    </td>
+                    <td>@item.UrunAdedi</td>
+                    <td>
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
