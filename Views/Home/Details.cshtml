@@ -48,10 +48,43 @@
                     <span class="badge badge-success">53</span>
                 </div>
                 <div id="write-review" class="col-md-4">
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#reviewModal">
                         Yorum Yap
                     </a>
                 </div>
+
+                <!-- Modal for writing review -->
+                <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reviewModalLabel">Yorum Yaz</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="reviewForm">
+                                    <div class="form-group">
+                                        <label for="firstName">İsminiz</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="İsminizi buraya yazın...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Soyisminiz</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Soyisminizi buraya yazın...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reviewText">Yorumunuz</label>
+                                        <textarea class="form-control" id="reviewText" rows="4" placeholder="Yorumunuzu buraya yazın..."></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Gönder</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div class="row mt-3">
                 <div class="col-md-12">
@@ -97,10 +130,66 @@
                     </div>
                     <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
                         <p>Diğer kullanıcıların ürün hakkında yazdığı yorumlar burada yer alacaktır. Kullanıcı yorumları ve puanlamalar burada gösterilecektir.</p>
+                        <div id="commentsList">
+                            <!-- Yorumlar burada görünecek -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var productId = '@Model.Id'; // Get the product ID from the model
+
+        // Sayfa yüklendiğinde yorumları yükle
+        loadComments(productId);
+
+        // Yorum formunu işleme
+        document.getElementById('reviewForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var reviewText = document.getElementById('reviewText').value;
+
+            if (firstName.trim() !== '' && lastName.trim() !== '' && reviewText.trim() !== '') {
+                var comments = JSON.parse(localStorage.getItem('comments')) || [];
+                comments.push({
+                    productId: productId,
+                    firstName: firstName,
+                    lastName: lastName,
+                    reviewText: reviewText,
+                    createdAt: new Date().toISOString()
+                });
+                localStorage.setItem('comments', JSON.stringify(comments));
+
+                // Formu temizle
+                document.getElementById('firstName').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('reviewText').value = '';
+
+                // Modalı kapat
+                $('#reviewModal').modal('hide');
+
+                // Yorumları tekrar yükle
+                loadComments(productId);
+            }
+        });
+    });
+
+    function loadComments(productId) {
+        var commentsList = document.getElementById('commentsList');
+        commentsList.innerHTML = '';
+
+        var comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.filter(comment => comment.productId === productId).forEach(function (comment) {
+            var commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.innerHTML = '<strong>' + comment.firstName + ' ' + comment.lastName + '</strong><p>' + comment.reviewText + '</p><small>' + new Date(comment.createdAt).toLocaleString() + '</small>';
+            commentsList.appendChild(commentDiv);
+        });
+    }
+
+</script>
