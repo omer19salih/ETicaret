@@ -20,7 +20,7 @@ namespace Abc.MvcWebUI.Controllers
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
                     Stock = i.Stock,
-                    Image = i.Image,
+                   Image1 = i.Image,
                     CategoryId = i.CategoryId
                 }).ToList();
 
@@ -43,7 +43,7 @@ namespace Abc.MvcWebUI.Controllers
                     Description = i.Description.Length > 50 ? i.Description.Substring(0, 47) + "..." : i.Description,
                     Price = i.Price,
                     Stock = i.Stock,
-                    Image = i.Image ?? "1.jpg",
+                    Image1 = i.Image ?? "1.jpg",
                     CategoryId = i.CategoryId
                 }).AsQueryable();
 

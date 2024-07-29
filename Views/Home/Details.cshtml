@@ -4,11 +4,40 @@
 @{
     ViewBag.Title = "Ürün Detayları";
 }
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <div id="product-details" class="container pb-5">
     <div class="row">
-
         <div class="col-md-6">
-            <img src="/Upload/@Model.Image" class="img-fluid rounded ">
+            <!-- Carousel -->
+            <div id="productCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#productCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#productCarousel" data-slide-to="1"></li>
+                    <li data-target="#productCarousel" data-slide-to="2"></li>
+                    <!-- Daha fazla slide için li ekleyin -->
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/Upload/@Model.Image" class="d-block w-100" alt="Resim 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/Upload/@Model.Image" class="d-block w-100" alt="Resim 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/Upload/@Model.Image" class="d-block w-100" alt="Resim 3">
+                    </div>
+                    <!-- Daha fazla carousel-item ekleyin -->
+                </div>
+                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Önceki</span>
+                </a>
+                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Sonraki</span>
+                </a>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="row">
@@ -193,3 +222,10 @@
     }
 
 </script>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
