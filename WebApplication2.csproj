@@ -135,7 +135,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
+    <Content Include="favcon.ico\android-icon-144x144.png" />
+    <Content Include="favcon.ico\android-icon-192x192.png" />
+    <Content Include="favcon.ico\android-icon-36x36.png" />
+    <Content Include="favcon.ico\android-icon-48x48.png" />
+    <Content Include="favcon.ico\android-icon-72x72.png" />
+    <Content Include="favcon.ico\android-icon-96x96.png" />
+    <Content Include="favcon.ico\apple-icon-114x114.png" />
+    <Content Include="favcon.ico\apple-icon-120x120.png" />
+    <Content Include="favcon.ico\apple-icon-144x144.png" />
+    <Content Include="favcon.ico\apple-icon-152x152.png" />
+    <Content Include="favcon.ico\apple-icon-180x180.png" />
+    <Content Include="favcon.ico\apple-icon-57x57.png" />
+    <Content Include="favcon.ico\apple-icon-60x60.png" />
+    <Content Include="favcon.ico\apple-icon-72x72.png" />
+    <Content Include="favcon.ico\apple-icon-76x76.png" />
+    <Content Include="favcon.ico\apple-icon-precomposed.png" />
+    <Content Include="favcon.ico\apple-icon.png" />
+    <Content Include="favcon.ico\browserconfig.xml" />
+    <Content Include="favcon.ico\favicon-16x16.png" />
+    <Content Include="favcon.ico\favicon-32x32.png" />
+    <Content Include="favcon.ico\favicon-96x96.png" />
+    <Content Include="favcon.ico\favicon.ico" />
+    <Content Include="favcon.ico\ms-icon-144x144.png" />
+    <Content Include="favcon.ico\ms-icon-150x150.png" />
+    <Content Include="favcon.ico\ms-icon-310x310.png" />
+    <Content Include="favcon.ico\ms-icon-70x70.png" />
     <Content Include="Global.asax" />
+    <Content Include="favcon.ico\manifest.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />

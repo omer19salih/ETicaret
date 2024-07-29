@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WebApplication2.Entity;
 using WebApplication2.Models;
@@ -12,9 +9,6 @@ namespace WebApplication2.Controllers
     public class OrderController : Controller
     {
         DataContext db = new DataContext();
-
-        // GET: Order
-        // GET: Siparis
         public ActionResult Index()
         {
             var siparisler = db.Orders.Select(i => new AdminOrderModel()
@@ -59,7 +53,6 @@ namespace WebApplication2.Controllers
 
             return View(entity);
         }
-
         public ActionResult UpdateOrderState(int OrderId, EnumOrderState OrderState)
         {
             var order = db.Orders.FirstOrDefault(i => i.Id == OrderId);

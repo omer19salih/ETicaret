@@ -2,7 +2,6 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -75,8 +74,6 @@ namespace WebApplication2.Controllers
 
             return View(entity);
         }
-
-        // GET: Account
         public ActionResult Register()
         {
             return View();
@@ -88,19 +85,19 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Kayıt işlemleri
 
-                var user = new ApplicationUser();
-                user.Name = model.Name;
-                user.Surname = model.SurName;
-                user.Email = model.Email;
-                user.UserName = model.UserName;
+                var user = new ApplicationUser
+                {
+                    Name = model.Name,
+                    Surname = model.SurName,
+                    Email = model.Email,
+                    UserName = model.UserName
+                };
 
                 var result = _userManager.Create(user, model.Password);
 
                 if (result.Succeeded)
-                {
-                    //kullanıcı oluştu ve kullanıcıyı bir role atayabilirsiniz.
+                {                   
                     if (_roleManager.RoleExists("user"))
                     {
                         _userManager.AddToRole(user.Id, "user");
@@ -116,8 +113,6 @@ namespace WebApplication2.Controllers
 
             return View(model);
         }
-
-        // GET: Account
         public ActionResult Login()
         {
             return View();
@@ -129,13 +124,11 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                //Login işlemleri
+      
                 var user = _userManager.Find(model.UserName, model.Password);
 
                 if (user != null)
                 {
-                    // varolan kullanıcıyı sisteme dahil et.
-                    // ApplicationCookie oluşturup sisteme bırak.
 
                     var authManager = HttpContext.GetOwinContext().Authentication;
                     var identityclaims = _userManager.CreateIdentity(user, "ApplicationCookie");

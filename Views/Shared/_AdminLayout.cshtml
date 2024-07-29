@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="/theme/css/style.css">
+    <link rel="icon" href="~/favcon.ico/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/Product">Ürün <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/Products">Ürün <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Category">Kategori</a>
@@ -42,11 +43,47 @@
 
     @RenderBody()
 
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+<footer class="footer">
+    <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+            <span> Teknoloji Hakkında</span> Teknoloji, insan hayatını ve toplumları dönüştüren, yenilikçi araçlar ve yöntemler geliştiren bir alan olarak bilinir. Bilgisayarlar, internet, yapay zeka ve mobil cihazlar gibi teknolojik gelişmeler, iş yapma biçimimizi, iletişim şeklimizi ve günlük yaşamımızı büyük ölçüde etkilemiştir. Teknoloji, sağlık, eğitim, iletişim ve eğlence gibi birçok sektörde devrim yaratmıştır. Gelişen teknoloji ile birlikte daha hızlı, verimli ve bağlantılı bir dünya yaratma potansiyeli artmaktadır. Ancak, teknolojinin getirdiği yenilikler kadar, bu yeniliklerin toplum ve bireyler üzerindeki etkileri hakkında da dikkatli düşünmek önemlidir.
+        </p>
+
+        <div class="icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="https://www.instagram.com/saliihuyarr/"><i class="fa fa-instagram"></i></a>
         </div>
-    </footer><!-- Optional JavaScript -->
+    </div>
+    <div class="footer-center col-md-4 col-sm-6">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span> Attila 88 </span> İstanbul,Türkiye</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p> 05388508419</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="#"> SalihÖmer@gmail.com</a></p>
+        </div>
+    </div>
+    <div class="footer-right col-md-4 col-sm-6">
+        <h2> <span> logo</span></h2>
+        <p class="menu">
+            <a href="#"> Home</a> |
+            <a href="#"> About</a> |
+            <a href="#"> Services</a> |
+            <a href="#"> Portfolio</a> |
+            <a href="#"> News</a> |
+            <a href="#"> Contact</a>
+        </p>
+        <p class="name"> E-Ticaret</p>
+    </div>
+</footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

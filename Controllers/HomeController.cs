@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using WebApplication2.Entity;
 using WebApplication2.Models;
@@ -11,9 +8,7 @@ namespace Abc.MvcWebUI.Controllers
 {
     public class HomeController : Controller
     {
-        DataContext _context = new DataContext();
-
-        // GET: Home
+        private DataContext _context = new DataContext();
         public ActionResult Index()
         {
             var urunler = _context.Products
