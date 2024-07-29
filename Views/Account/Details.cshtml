@@ -10,10 +10,10 @@
             <h2>Sipariş Detay Bilgileri</h2>
             <hr />
 
-            <dl class="row">
+            <div class="row">
 
-                <dt class="col-sm-3">Sipariş Durumu</dt>
-                <dd class="col-sm-9">
+                <div class="col-sm-3">Sipariş Durumu++</div>
+                <div class="col-sm-9">
                     @if (Model.OrderState == EnumOrderState.Waiting)
                     {
                         <span class="badge-danger">Onay Bekliyor</span>
@@ -22,25 +22,25 @@
                     {
                         <span class="badge-success">Sipariş Tamamlandı</span>
                     }
-                </dd>
+                </div>
 
-                <dt class="col-sm-3">Sipariş ID</dt>
-                <dd class="col-sm-9">@Model.OrderId</dd>
+                <div class="col-sm-3">Sipariş ID</div>
+                <div class="col-sm-9">@Model.OrderId</div>
 
-                <dt class="col-sm-3">Sipariş Numarası</dt>
-                <dd class="col-sm-9">@Model.OrderNumber</dd>
+                <div class="col-sm-3">Sipariş Numarası</div>
+                <div class="col-sm-9">@Model.OrderNumber</div>
 
-                <dt class="col-sm-3">Toplam</dt>
-                <dd class="col-sm-9">
+                <div class="col-sm-3">Toplam</div>
+                <div class="col-sm-9">
                     <i class="fa fa-try" aria-hidden="true"></i>
                     @Model.Total
-                </dd>
+                </div>
 
-                <dt class="col-sm-3">Sipariş Tarihi</dt>
-                <dd class="col-sm-9">@Model.OrderDate</dd>
+                <div class="col-sm-3">Sipariş Tarihi</div>
+                <div class="col-sm-9">@Model.OrderDate</div>
 
-                <dt class="col-sm-3">Adres</dt>
-                <dd class="col-sm-9">
+                <div class="col-sm-3">Adres</div>
+                <div class="col-sm-9">
                     @Model.AdresBasligi
                     <hr />
                     @Model.Adres
@@ -48,10 +48,10 @@
                     @Model.Sehir - @Model.Semt - @Model.Mahalle
                     <br />
                     @Model.PostaKodu
-                </dd>
+                </div>
 
-                <dt class="col-sm-3">Ürünler</dt>
-                <dd class="col-sm-9">
+                <div class="col-sm-3">Ürünler</div>
+                <div class="col-sm-9">
                     <table class="table table-bordered">
 
                         <thead>
@@ -91,9 +91,9 @@
                             }
                         </tbody>
                     </table>
-                </dd>
+                </div>
 
-            </dl>
+            </div>
 
         </div>
     </div>
