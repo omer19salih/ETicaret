@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using WebApplication2.Entity;
 using WebApplication2.Identity;
 using WebApplication2.Models;
+using System.Threading.Tasks;
 
 namespace WebApplication2.Controllers
 {
@@ -81,11 +82,10 @@ namespace WebApplication2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(Register model)
+        public async Task<ActionResult> Register(Register model)
         {
             if (ModelState.IsValid)
             {
-
                 var user = new ApplicationUser
                 {
                     Name = model.Name,
@@ -94,25 +94,28 @@ namespace WebApplication2.Controllers
                     UserName = model.UserName
                 };
 
-                var result = _userManager.Create(user, model.Password);
+                var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
-                {                   
-                    if (_roleManager.RoleExists("user"))
+                {
+                    if (await _roleManager.RoleExistsAsync("user"))
                     {
-                        _userManager.AddToRole(user.Id, "user");
+                        await _userManager.AddToRoleAsync(user.Id, "user");
                     }
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    ModelState.AddModelError("RegisterUserError", "Kullanıcı  oluşturma hatası.");
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
                 }
-
             }
 
             return View(model);
         }
+
         public ActionResult Login()
         {
             return View();

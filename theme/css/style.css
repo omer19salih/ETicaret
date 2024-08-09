@@ -259,3 +259,6 @@ code {
     color: white; /* Ýkonun rengini beyaz yapar */
     font-size: 24px; /* Ýkonun boyutunu ayarlar */
 }
+.navbar .btn {
+    margin-left: 10px;
+}
